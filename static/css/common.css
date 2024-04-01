@@ -1,0 +1,41 @@
+:root{
+    --button:#AC69EF;
+    --button-hover:#7F19E6;
+    
+
+    /* --button:#2ec1ac;
+    --button-hover:#279e8c; */
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+.h-font{
+    font-family: 'Merienda', cursive ;
+}
+
+/* phone-number-arrow-hide */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+.btn-bg{
+    background-color:var(--button);
+    border: 1px solid var(--button);
+    }
+
+.btn-bg:hover{
+     background-color:var(--button-hover);
+     border-color: var(--button-hover);
+
+}
+
+.h-line{
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+}

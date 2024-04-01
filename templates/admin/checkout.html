@@ -1,0 +1,61 @@
+{% include 'admin/inc/link.html' %}
+<style>
+	.container-fluid p{
+		margin: unset
+	}
+	#uni_modal .modal-footer{
+		display: none;
+	}
+</style>
+{% include 'admin/inc/header.html' %}
+<div class="container-fluid">
+	<p><b>Room : </b></p>
+	<p><b>Room Category : </b></p>
+	<p><b>Room Price : </b></p>
+	<p><b>Reference no : </b></p>
+	<p><b>Checked In : </b></p>
+	<p><b>Contact no : </b></p>
+	<p><b>Check-in Date/Time : </b></p>
+	<p><b>Check-out Date/Time : </b></p>
+	<p><b>Days : </b></p>
+	<p><b>Amount (Price * Days) : </b></p>
+	
+		<div class="row">
+	
+				<div class="col-md-3">
+					<button type="button" class="btn btn-primary" id="checkout">Checkout</button>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-primary" id="edit_checkin">Edit</button>
+				</div>
+		
+				<div class="col-md-3">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+		
+		</div>
+</div>
+<script>
+	$(document).ready(function(){
+		
+	})
+	$('#edit_checkin').click(function(){
+		uni_modal("Edit Check In","manage_check_in.php?id=<?php echo $id ?>&rid=<?php echo $room_id ?>")
+	})
+	$('#checkout').click(function(){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=save_checkout',
+			method:'POST',
+			data:{id:'<?php echo $id ?>',rid:'<?php echo $room_id ?>'},
+			success:function(resp){
+				if(resp ==1){
+					alert_toast("Data successfully saved",'success')
+					setTimeout(function(){
+						location.reload()
+					},1500)
+				}
+			}
+		})
+	})
+</script>
